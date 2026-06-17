@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+
+    stages{
+        stage("Clone"){
+            steps{
+                git credentialsId: 'github_project', url: 'https://github.com/logeshmathiyazhagan-create/Task-1.git'
+            }
+        }
+        stage("Build"){
+            steps{
+                sh "python3 --version"
+
+            }
+        }
+        stage("Test"){
+            steps{
+                sh "Python3 app.py"
+            }
+        }
+    }
+}
